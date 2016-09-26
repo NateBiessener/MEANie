@@ -28,4 +28,12 @@ myApp.controller( 'whereMyPeeps', [ '$scope', '$http', function( $scope, $http )
       console.log( response.statusText );
     });
   };
+
+  $scope.deleteRecord = function(id){
+    console.log('in deleteRecord');
+    $http({
+      method: 'DELETE',
+      url: '/remove?id=' + id
+    }).then($scope.getRecords);
+  }
 }]);

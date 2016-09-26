@@ -43,4 +43,17 @@ app.post( '/testPost', function( req, res ){
   newRecord.save();
 });
 
+app.delete('/remove', function(req, res){
+  console.log('in delete');
+  ourModel.findByIdAndRemove(req.query.id, function(err, result){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else {
+      res.send(result);
+    }
+  });
+});
+
 app.use( express.static( 'public' ) );

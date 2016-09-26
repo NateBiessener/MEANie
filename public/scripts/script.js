@@ -23,9 +23,9 @@ myApp.controller( 'whereMyPeeps', [ '$scope', '$http', function( $scope, $http )
     }).then( function( response ){
       $scope.allTheRecords = response.data;
       console.log( $scope.allTheRecords );
+    },
+    function myError( response ){
+      console.log( response.statusText );
     });
-    // , function myError( response ){
-    // console.log( response.statusText );
-    // };
   };
 }]);
